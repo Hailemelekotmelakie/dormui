@@ -1,7 +1,7 @@
 name: CI -> Deploy to My website
 on:
   push:
-    branches: [ main, branch ]
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,4 +14,4 @@ jobs:
           server: ${{ secrets.FTPSERVER }}
           user: ${{ secrets.FTPUSERNAME }}
           password: ${{ secrets.FTPPASSWORD }}
-          delete: "false"
+          delete: "true"
