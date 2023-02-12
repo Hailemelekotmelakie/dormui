@@ -1,0 +1,21 @@
+.menuContainer {
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    border-radius: 100%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.menuContainer:hover {
+    background-color: rgb(173, 171, 172);
+}
+
+.menu {
+    display: flex;
+    background-color: whitesmoke;
+    height: 2.5px;
+    width: 21px;
+    border-radius: 5px;
+    margin: 2.3px;
+}

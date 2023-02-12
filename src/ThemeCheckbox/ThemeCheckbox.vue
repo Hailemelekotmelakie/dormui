@@ -1,5 +1,4 @@
 <template>
-  <AppHeader />
   <div class="OThemeCheckboxMode">
     <input
       type="checkbox"
@@ -14,16 +13,8 @@
 </template>
 
 <script>
-import AppHeader from "./AppHeader/AppHeader.vue";
-import ThemeCheckbox from "./_mixins/ThemeMixin.vue";
-
+import ThemeCheckbox from "../_mixins/ThemeMixin.vue";
 export default {
-  name: "App",
-  components: {
-    AppHeader,
-  },
   mixins: [ThemeCheckbox],
 };
 </script>
-
-<style></style>
