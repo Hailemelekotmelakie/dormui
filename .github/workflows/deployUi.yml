@@ -16,4 +16,4 @@ jobs:
           password: ${{ secrets.FTPPASSWORD }}
           local-dir: dist/
           delete: "true"
-          #source-directory: output/
+          # source-directory: output/
