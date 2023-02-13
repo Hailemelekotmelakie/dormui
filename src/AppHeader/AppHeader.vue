@@ -4,8 +4,8 @@
     <div class="menu"></div>
     <div class="menu"></div>
   </div>
-  <router-link to="/"> Homepage </router-link>
-  <router-link to="/contact"> Contact </router-link>
+  <router-link to="/"> Home </router-link>
+  <router-link to="/contact"> Telegram Clone </router-link>
   <router-view />
 </template>
 
