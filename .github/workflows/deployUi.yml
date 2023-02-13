@@ -14,5 +14,5 @@ jobs:
           server: ${{ secrets.FTPSERVER }}
           user: ${{ secrets.FTPUSERNAME }}
           password: ${{ secrets.FTPPASSWORD }}
-          local-dir: "dist/"
+          local-dir: dist/
           delete: "true"
