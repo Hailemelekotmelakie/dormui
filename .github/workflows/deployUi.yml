@@ -13,5 +13,5 @@ jobs:
         user: ${{ secrets.FTPUSERNAME }}
         password: ${{ secrets.FTPPASSWORD }}
         localDir: "dist"
-        remoteDir: "www"
+        remoteDir: "/"
         options: "--delete --asci"
