@@ -15,14 +15,14 @@
 
 <script>
 import AppHeader from "./AppHeader/AppHeader.vue";
-import ThemeCheckbox from "./_mixins/ThemeMixin.vue";
+import ThemeMixins from "./_mixins/ThemeMixin.vue";
 
 export default {
   name: "App",
   components: {
     AppHeader,
   },
-  mixins: [ThemeCheckbox],
+  mixins: [ThemeMixins],
 };
 </script>
 
