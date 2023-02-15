@@ -7,31 +7,72 @@ export default {
       if (localStorage.getItem("OTheme") == "dark") {
         document.getElementById("OThemeCheckbox").checked = false;
         this.ThemeMode = "light";
-
-        let lightBackgroundColor = getComputedStyle(root).getPropertyValue(
-          "--lightBackgroundColor"
+        // For background light
+        root.style.setProperty(
+          "--backgroundColor",
+          getComputedStyle(root).getPropertyValue("--lightBackgroundColor")
         );
-        root.style.setProperty("--backgroundColor", lightBackgroundColor);
-
-        let lightButtonBackgroundColor = getComputedStyle(root).getPropertyValue(
-          "--lightButtonBackgroundColor"
+        //for button light
+        root.style.setProperty(
+          "--buttonColor",
+          getComputedStyle(root).getPropertyValue("--lightButtonColor")
         );
-        root.style.setProperty("--buttonBackgroundColor", lightButtonBackgroundColor);
+        // For blur button Light
+        root.style.setProperty(
+          "--buttonHoverColor",
+          getComputedStyle(root).getPropertyValue("--lightButtonHoverColor")
+        );
+        // For text light
+        root.style.setProperty(
+          "--textColor",
+          getComputedStyle(root).getPropertyValue("--lightTextColor")
+        );
+        // For blur text Light
+        root.style.setProperty(
+          "--textBlurColor",
+          getComputedStyle(root).getPropertyValue("--lightTextBlurColor")
+        );
+        // For Colorized text Light
+        root.style.setProperty(
+          "--colorizedTextColor",
+          getComputedStyle(root).getPropertyValue("--lightColorizedTextColor")
+        );
 
         localStorage.setItem("OTheme", "light");
       } else {
         document.getElementById("OThemeCheckbox").checked = true;
         this.ThemeMode = "dark";
 
-        let darkBackgroundColor = getComputedStyle(root).getPropertyValue(
-          "--darkBackgroundColor"
+        // For Background darkning
+        root.style.setProperty(
+          "--backgroundColor",
+          getComputedStyle(root).getPropertyValue("--darkBackgroundColor")
         );
-        root.style.setProperty("--backgroundColor", darkBackgroundColor);
-
-        let darkButtonBackgroundColor = getComputedStyle(root).getPropertyValue(
-          "--darkButtonBackgroundColor"
+        //for button dark
+        root.style.setProperty(
+          "--buttonColor",
+          getComputedStyle(root).getPropertyValue("--darkButtonColor")
         );
-        root.style.setProperty("--buttonBackgroundColor", darkButtonBackgroundColor);
+        // For blur button dark
+        root.style.setProperty(
+          "--buttonBlurColor",
+          getComputedStyle(root).getPropertyValue("------darkButtonHoverColor")
+        );
+        // For text dark
+        root.style.setProperty(
+          "--textColor",
+          getComputedStyle(root).getPropertyValue("--darkTextColor")
+        );
+        // For blur text dark
+        root.style.setProperty(
+          "--textBlurColor",
+          getComputedStyle(root).getPropertyValue("----darkTextBlurColor")
+        );
+        // For Colorized text dark
+        root.style.setProperty(
+          "--colorizedTextColor",
+          getComputedStyle(root).getPropertyValue("------darkColorizedTextColor")
+        );
 
         localStorage.setItem("OTheme", "dark");
       }
@@ -48,29 +89,69 @@ export default {
         this.ThemeMode = "dark";
 
         document.getElementById("OThemeCheckbox").checked = true;
-
-        let darkBackgroundColor = getComputedStyle(root).getPropertyValue(
-          "--darkBackgroundColor"
+        // For Background darkening
+        root.style.setProperty(
+          "--backgroundColor",
+          getComputedStyle(root).getPropertyValue("--darkBackgroundColor")
         );
-        root.style.setProperty("--backgroundColor", darkBackgroundColor);
-
-        let darkButtonBackgroundColor = getComputedStyle(root).getPropertyValue(
-          "--darkButtonBackgroundColor"
+        //for button dark
+        root.style.setProperty(
+          "--buttonColor",
+          getComputedStyle(root).getPropertyValue("--darkButtonColor")
         );
-        root.style.setProperty("--buttonBackgroundColor", darkButtonBackgroundColor);
+        // For blur button dark
+        root.style.setProperty(
+          "--buttonBlurColor",
+          getComputedStyle(root).getPropertyValue("------darkButtonHoverColor")
+        );
+        // For text dark
+        root.style.setProperty(
+          "--textColor",
+          getComputedStyle(root).getPropertyValue("--darkTextColor")
+        );
+        // For blur text dark
+        root.style.setProperty(
+          "--textBlurColor",
+          getComputedStyle(root).getPropertyValue("----darkTextBlurColor")
+        );
+        // For Colorized text dark
+        root.style.setProperty(
+          "--colorizedTextColor",
+          getComputedStyle(root).getPropertyValue("------darkColorizedTextColor")
+        );
       } else {
         this.ThemeMode = "light";
         document.getElementById("OThemeCheckbox").checked = false;
-
-        let lightBackgroundColor = getComputedStyle(root).getPropertyValue(
-          "--lightBackgroundColor"
+        // For Background light
+        root.style.setProperty(
+          "--backgroundColor",
+          getComputedStyle(root).getPropertyValue("--lightBackgroundColor")
         );
-        root.style.setProperty("--backgroundColor", lightBackgroundColor);
-
-        let lightButtonBackgroundColor = getComputedStyle(root).getPropertyValue(
-          "--lightButtonBackgroundColor"
+        //for button light
+        root.style.setProperty(
+          "--buttonColor",
+          getComputedStyle(root).getPropertyValue("--lightButtonColor")
         );
-        root.style.setProperty("--buttonBackgroundColor", lightButtonBackgroundColor);
+        // For blur button Light
+        root.style.setProperty(
+          "--buttonHoverColor",
+          getComputedStyle(root).getPropertyValue("--lightButtonHoverColor")
+        );
+        // For text light
+        root.style.setProperty(
+          "--textColor",
+          getComputedStyle(root).getPropertyValue("--lightTextColor")
+        );
+        // For blur text Light
+        root.style.setProperty(
+          "--textBlurColor",
+          getComputedStyle(root).getPropertyValue("--lightTextBlurColor")
+        );
+        // For Colorized text Light
+        root.style.setProperty(
+          "--colorizedTextColor",
+          getComputedStyle(root).getPropertyValue("--lightColorizedTextColor")
+        );
       }
     }
   },
@@ -81,7 +162,37 @@ export default {
   /* body background  */
   --backgroundColor: white;
   --lightBackgroundColor: white;
-  --darkBackgroundColor: black;
+  --darkBackgroundColor: #17212b;
+
+  /* Button colors */
+  --buttonColor: #41b3e7;
+  --lightButtonColor: #41b3e7;
+  --darkButtonColor: #5288c1;
+
+  /* Button Hover colors */
+  --buttonHoverColor: #41b2e7b2;
+  --lightButtonHoverColor: #41b2e7ab;
+  --darkButtonHoverColor: #5288c1a9;
+
+  /* Colorized Text colors */
+  --colorizedTextColor: #41b3e7;
+  --lightColorizedTextColor: #41b3e7;
+  --darkColorizedTextColor: #41b3e7;
+
+  /* Text colors */
+  --textColor: #05202c;
+  --lightTextColor: #021020;
+  --darkTextColor: #bebfa7;
+
+  /* Text Blur colors */
+  --textBlurColor: #8191a1;
+  --lightTextBlurColor: #8191a1;
+  --darkTextBlurColor: #708499;
+
+  /* Ancher colors */
+  --ancherTextColor: #0d6fd2;
+  --lightAncherTextColor: #076dd4;
+  --darkAncherTextColor: #8191a1;
 }
 
 * {
@@ -92,39 +203,9 @@ export default {
 
 body {
   background-color: var(--backgroundColor);
+  color: var(--textColor);
 }
-
-.OThemeCheckboxMode {
-  display: flex;
-  transition: 0.5s;
-}
-
-.OThemeCheckbox:checked + .OThemeCheckboxLabel .OThemeCheckboxBall {
-  transform: translateX(29px);
-}
-
-.OThemeCheckbox {
-  opacity: 0;
-  display: none;
-}
-
-.OThemeCheckboxLabel {
-  width: 55px;
-  height: 26px;
-  background: rgb(80, 63, 63);
-  border-radius: 50px;
-  padding: 5px;
-  position: relative;
-}
-
-.OThemeCheckboxBall {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 22px;
-  height: 22px;
-  background: red;
-  border-radius: 50%;
-  transition: 0.2s;
+a {
+  color: var("--ancherTextColor");
 }
 </style>

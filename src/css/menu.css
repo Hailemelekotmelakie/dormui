@@ -8,12 +8,12 @@
 }
 
 .menuContainer:hover {
-    background-color: rgb(173, 171, 172);
+    opacity: 0.7;
 }
 
 .menu {
     display: flex;
-    background-color: whitesmoke;
+    background-color: var(--textBlurColor);
     height: 2.5px;
     width: 21px;
     border-radius: 5px;

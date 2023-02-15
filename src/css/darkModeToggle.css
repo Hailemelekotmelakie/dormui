@@ -1,0 +1,43 @@
+/* THIS IS FOR DARK AND NIGHT MODE TOGGLE */
+
+.OThemeCheckboxMode {
+    display: flex;
+    transition: 0.5s;
+}
+
+.OThemeCheckbox:checked+.OThemeCheckboxLabel .OThemeCheckboxBall {
+    transform: translateX(9px);
+    background-color: var(--backgroundColor);
+    border: 2px solid var(--buttonColor);
+}
+
+.OThemeCheckbox:checked+.OThemeCheckboxLabel {
+    background-color: var(--buttonColor)
+}
+
+.OThemeCheckbox {
+    opacity: 0;
+    display: none;
+}
+
+.OThemeCheckboxLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 15px;
+    background: var(--buttonColor);
+    border-radius: 50px;
+    position: relative;
+}
+
+.OThemeCheckboxBall {
+    display: flex;
+    transform: translateX(-9px);
+    width: 19px;
+    height: 19px;
+    background-color: var(--backgroundColor);
+    border: 2px solid var(--buttonColor);
+    border-radius: 50%;
+    transition: 0.2s;
+}

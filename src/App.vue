@@ -25,5 +25,6 @@ export default {
   mixins: [ThemeMixins],
 };
 </script>
+<style scoped src="@/css/darkModeToggle.css"></style>
 
 <style></style>

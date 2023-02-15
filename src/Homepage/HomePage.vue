@@ -8,4 +8,6 @@ export default {
   mixins: [ThemeCheckbox],
 };
 </script>
+<style scoped src="@/css/darkModeToggle.css"></style>
+
 <style></style>
