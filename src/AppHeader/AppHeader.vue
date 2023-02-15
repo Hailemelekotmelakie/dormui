@@ -8,7 +8,7 @@
   <router-link to="/contact"> Telegram </router-link>
   <router-view />
 
-  <div v-for="one in data" :key="one">{{ one.id }} {{ one.email }}</div>
+  <div v-for="one in data" :key="one">{{ one.id }} {{ one.post }}{{ one.userId }}</div>
 </template>
 
 <script>
