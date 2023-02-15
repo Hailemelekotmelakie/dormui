@@ -25,7 +25,7 @@ export default {
   methods: {
     handleLogin() {
       console.log(this.email);
-      Axios.post("https://localhost:7777/login", {
+      Axios.post("https://dormapi.huliesira.com/login", {
         email: this.email,
         password: this.password,
       })
