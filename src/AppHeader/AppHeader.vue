@@ -24,7 +24,7 @@ export default {
     };
   },
   mounted() {
-    Axios.get("https://dormapi.huliesira.com/user")
+    Axios.get("https://dormapi.huliesira.com/post")
       .then((result) => {
         this.data = result.data;
       })
