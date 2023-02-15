@@ -1,2 +1,2 @@
 "use strict";(self["webpackChunkdorm"]=self["webpackChunkdorm"]||[]).push([[204],{5204:function(n,r,t){t.r(r),t.d(r,{default:function(){return f}});var u=t(3396);function e(n,r){return(0,u.wg)(),(0,u.iD)("p",null,"para contact")}var a=t(89);const c={},o=(0,a.Z)(c,[["render",e]]);var f=o}}]);
-//# sourceMappingURL=204.ecab6f99.js.map
+//# sourceMappingURL=204.06e81a6e.js.map
