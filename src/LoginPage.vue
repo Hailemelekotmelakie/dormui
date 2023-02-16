@@ -10,8 +10,6 @@ import AppHeader from "./AppHeader/AppHeader.vue";
 import Axios from "axios";
 import ThemeMixins from "./_mixins/ThemeMixin.vue";
 
-Axios.defaults.withCredentials = true;
-
 export default {
   name: "App",
   components: {
@@ -28,6 +26,7 @@ export default {
   methods: {
     handleLogin() {
       console.log(this.email);
+      Axios.defaults.withCredentials = true;
       Axios.post("https://dormapi.huliesira.com/login", {
         email: this.email,
         password: this.password,
@@ -45,8 +44,23 @@ export default {
         });
     },
   },
-  mounted() {
-    Axios.defaults.withCredentials = true;
-  },
+  // mounted() {
+  //   Axios.defaults.withCredentials = true;
+  //   Axios.post("http://localhost:7777/login", {
+  //     email: "email",
+  //     password: "123",
+  //   })
+  //     .then((result) => {
+  //       if (result.status === 200) {
+  //         console.log("Loggd in ");
+  //       }
+  //       if (result.status === 403) {
+  //         console.log("out in ");
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // },
 };
 </script>
