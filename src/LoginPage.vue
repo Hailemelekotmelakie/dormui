@@ -27,7 +27,7 @@ export default {
     handleLogin() {
       console.log(this.email);
       Axios.defaults.withCredentials = true;
-      Axios.post("https://dormapi.huliesira.com/login", {
+      Axios.post("https://dormapi.huliesira.com/login/", {
         email: this.email,
         password: this.password,
       })
