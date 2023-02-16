@@ -2,17 +2,20 @@
   <input type="text" name="email" v-model="email" placeholder="email" /> <br />
   <input type="text" v-model="password" placeholder="password" /><br />
   <input @click="handleLogin()" type="button" value="login" />
+  <AppHeader />
 </template>
 
 <script>
-// import AppHeader from "./AppHeader/AppHeader.vue";
+import AppHeader from "./AppHeader/AppHeader.vue";
 import Axios from "axios";
 import ThemeMixins from "./_mixins/ThemeMixin.vue";
+
+Axios.defaults.withCredentials = true;
 
 export default {
   name: "App",
   components: {
-    // AppHeader,
+    AppHeader,
   },
   mixins: [ThemeMixins],
   data() {
@@ -30,10 +33,10 @@ export default {
         password: this.password,
       })
         .then((result) => {
-          if (result.status == 200) {
+          if (result.status === 200) {
             console.log("Loggd in ");
           }
-          if (result.status == 403) {
+          if (result.status === 403) {
             console.log("out in ");
           }
         })
@@ -41,6 +44,9 @@ export default {
           console.log(err);
         });
     },
+  },
+  mounted() {
+    Axios.defaults.withCredentials = true;
   },
 };
 </script>

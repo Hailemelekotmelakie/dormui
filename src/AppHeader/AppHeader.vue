@@ -9,15 +9,20 @@
   <router-view />
 
   <div v-for="one in data" :key="one">{{ one.id }} {{ one.post }}{{ one.userId }}</div>
+  <spinnerLoader />
 </template>
 
 <script>
 import ThemeMixin from "../_mixins/ThemeMixin.vue";
+import spinnerLoader from "../components/SpinnerLoad.vue";
 import Axios from "axios";
 
 export default {
   name: "AppHeader",
   mixins: [ThemeMixin],
+  components: {
+    spinnerLoader,
+  },
   data() {
     return {
       data: null,
