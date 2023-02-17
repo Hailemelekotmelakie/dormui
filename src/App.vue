@@ -16,9 +16,11 @@
 <script>
 import AppLogin from "./LoginPage.vue";
 import ThemeMixins from "./_mixins/ThemeMixin.vue";
-
 export default {
   name: "App",
+  provide: {
+    DORM_API: process.env.VUE_APP_DORM_API,
+  },
   components: {
     AppLogin,
   },
