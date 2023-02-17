@@ -1,7 +1,7 @@
 <template>
   <div v-if="!isLogin">
     <input type="text" name="email" v-model="email" placeholder="email" /> <br />
-    <input type="text" v-model="password" placeholder="password" /><br />
+    <input type="text" v-model="password" placeholder="password" /><br /><br />
     <input @click="handleLogin()" type="button" value="login" />
   </div>
   <div v-if="isLogin"><AppHeader /></div>
