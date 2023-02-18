@@ -32,7 +32,7 @@ export default {
   methods: {
     handleLogin() {
       Axios.defaults.withCredentials = true;
-      Axios.post(this.DORM_API + "/login", {
+      Axios.post(this.DORM_API + "/user", {
         email: this.email,
         password: this.password,
       })
