@@ -11,7 +11,6 @@
 <script>
 import AppHeader from "./AppHeader/AppHeader.vue";
 import Axios from "axios";
-// import VueCookies from "vue-cookies";
 
 import ThemeMixins from "./_mixins/ThemeMixin.vue";
 
@@ -34,7 +33,7 @@ export default {
   methods: {
     handleLogin() {
       Axios.defaults.withCredentials = true;
-      Axios.post(this.DORM_API + "/log", {
+      Axios.post(this.DORM_API + "/auth", {
         email: this.email,
         password: this.password,
       })
