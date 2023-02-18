@@ -43,7 +43,7 @@ export default {
             if (result.status === 200) {
               console.log("Loggd in ");
               if (result.data === "success") {
-                // this.$router.push({ path: "/contact" });
+                this.$router.push({ path: "/contact" });
                 this.isLogin = true;
                 this.authResponse = undefined;
               } else {
