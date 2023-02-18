@@ -1,5 +1,6 @@
 <template>
   <div v-if="!isLogin">
+    <h4 v-if="authResponse">{{ authResponse }}</h4>
     <input type="text" name="email" v-model="email" placeholder="email" /> <br />
     <input type="text" v-model="password" placeholder="password" /><br /><br />
     <input @click="handleLogin()" type="button" value="login" />
@@ -27,24 +28,32 @@ export default {
       password: null,
       showPassword: false,
       isLogin: false,
+      authResponse: undefined,
     };
   },
   methods: {
     handleLogin() {
       Axios.defaults.withCredentials = true;
-      Axios.post(this.DORM_API + "/user", {
+      Axios.post(this.DORM_API + "/login", {
         email: this.email,
         password: this.password,
       })
         .then((result) => {
-          if (result.status === 200) {
-            console.log("Loggd in ");
-            this.$router.push({ path: "/contact" });
-            this.isLogin = true;
-          }
-          if (result.status === 403) {
-            console.log("out in ");
-            this.isLogin = true;
+          if (this.email && this.password) {
+            if (result.status === 200) {
+              console.log("Loggd in ");
+              if (result.data === "success") {
+                this.$router.push({ path: "/contact" });
+                this.isLogin = true;
+                this.authResponse = undefined;
+              } else {
+                this.authResponse = result.data;
+              }
+            } else {
+              this.authResponse = "Error";
+            }
+          } else {
+            this.authResponse = "Fill below";
           }
         })
         .catch((err) => {
