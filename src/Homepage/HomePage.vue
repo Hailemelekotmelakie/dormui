@@ -20,7 +20,7 @@ export default {
     };
   },
   mounted() {
-    Axios.get(this.DORM_API + "/post")
+    Axios.get(this.DORM_API + "/ip")
       .then((result) => {
         this.data = result.data;
       })

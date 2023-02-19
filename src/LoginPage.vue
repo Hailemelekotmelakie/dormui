@@ -1,9 +1,18 @@
 <template>
-  <div v-if="!isLogin">
-    <h4 v-if="authResponse">{{ authResponse }}</h4>
+  <div v-if="!isLogin && loginPage">
+    <h4 v-if="authResponse">Login {{ authResponse }}</h4>
     <input type="text" name="email" v-model="email" placeholder="email" /> <br />
     <input type="text" v-model="password" placeholder="password" /><br /><br />
     <input @click="handleLogin()" type="button" value="login" />
+    <h5>Have not account <span @click="loginPage = !loginPage">Click here</span></h5>
+  </div>
+  <div v-if="!isLogin && !loginPage">
+    <h4 v-if="authResponse">signup{{ authResponse }}</h4>
+    <input type="text" name="name" v-model="Sname" placeholder="name" /> <br />
+    <input type="text" name="email" v-model="Semail" placeholder="email" /> <br />
+    <input type="text" v-model="Spassword" placeholder="password" /><br /><br />
+    <input @click="handleSignup()" type="button" value="Signup" />
+    <h5>Have an account <span @click="loginPage = !loginPage">Click here</span></h5>
   </div>
   <div v-if="isLogin"><AppHeader /></div>
 </template>
@@ -14,6 +23,7 @@ import Axios from "axios";
 // import VueCookies from "vue-cookies";
 
 import ThemeMixins from "./_mixins/ThemeMixin.vue";
+import cookieMixin from "./_mixins/CookieMixin.vue";
 
 export default {
   name: "App",
@@ -21,14 +31,14 @@ export default {
     AppHeader,
   },
   inject: ["DORM_API"],
-  mixins: [ThemeMixins],
+  mixins: [ThemeMixins, cookieMixin],
   data() {
     return {
       email: null,
       password: null,
       showPassword: false,
-      isLogin: false,
       authResponse: undefined,
+      loginPage: true,
     };
   },
   methods: {
@@ -43,7 +53,7 @@ export default {
             if (result.status === 200) {
               console.log("Loggd in ");
               if (result.data === "success") {
-                this.$router.push({ path: "/contact" });
+                this.$router.push({ path: "/" });
                 this.isLogin = true;
                 this.authResponse = undefined;
               } else {
@@ -60,14 +70,6 @@ export default {
           console.log(err);
         });
     },
-  },
-  mounted() {
-    if (this.isLogin) {
-      console.log("No redirect");
-      this.$router.push("contact");
-    } else {
-      console.log("No redirect");
-    }
   },
 };
 </script>
