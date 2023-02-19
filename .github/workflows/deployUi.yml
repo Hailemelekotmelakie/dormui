@@ -14,4 +14,4 @@ jobs:
         password: ${{ secrets.FTPPASSWORD }}
         localDir: "dist"
         remoteDir: "/"
-        options: "--delete --asci"
+       # options: "--delete --asci"
