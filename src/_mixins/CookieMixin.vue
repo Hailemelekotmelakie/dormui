@@ -1,32 +1,34 @@
 <script>
 export default {
-  data() {
-    return {
-      isLogin: false,
-    };
-  },
-  methods: {
-    logout: function () {
-      document.cookie = "DORM =HI ; Max-Age=-1";
-      this.$router.push("/auth");
+    data() {
+        return {
+            isLogin: false,
+        };
     },
-  },
-  mounted() {
-    // check cookies
-    let cookie = {};
-    document.cookie.split(";").forEach(function (el) {
-      let [k, v] = el.split("=");
-      cookie[k.trim()] = v;
-    });
-    if (cookie["DORM"]) {
-      this.isLogin = true;
-    } else {
-      this.isLogin = false;
-    }
-    // Authorizing pages
-    if (!this.isLogin) {
-      this.logout();
-    }
-  },
+    methods: {
+        logout: function () {
+            document.cookie = "DORM =HI ; Max-Age=-1";
+            this.$router.push("/");
+            this.isLogin = false
+        },
+    },
+    mounted() {
+        // check cookies
+        let cookie = {};
+        document.cookie.split(";").forEach(function (el) {
+            let [k, v] = el.split("=");
+            cookie[k.trim()] = v;
+        });
+        if (cookie["DORM"]) {
+            this.isLogin = true;
+        } else {
+            this.isLogin = false;
+        }
+        // Authorizing pages
+        if (!this.isLogin) {
+            this.logout();
+        }
+    },
+
 };
 </script>

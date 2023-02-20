@@ -13,10 +13,14 @@ const router = createRouter({
         {
             path: '/contact',
             component: () => import('@/Contact/ContactPage.vue')
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            component: () => import('@/NotFound/NotFound.vue')
         }
+
     ]
 })
-
 
 createApp(App).use(router).mount("#app");
 

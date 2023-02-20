@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkdorm"]=self["webpackChunkdorm"]||[]).push([[956],{3956:function(n,r,e){e.r(r),e.d(r,{default:function(){return d}});var t=e(3396);const o={style:{color:"red"}};function u(n,r){return(0,t.wg)(),(0,t.iD)("h2",o,"Page not found")}var c=e(89);const s={},a=(0,c.Z)(s,[["render",u]]);var d=a}}]);
+//# sourceMappingURL=956.d469375c.js.map
