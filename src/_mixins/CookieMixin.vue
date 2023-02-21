@@ -21,19 +21,13 @@ export default {
             let [k, v] = el.split("=");
             cookie[k.trim()] = v;
         });
+        console.log(cookie["DORM"])
         if (cookie["DORM"]) {
-            this.isLogin = 1;
             localStorage.setItem('dCookies', 1)
         } else {
-            this.isLogin = 0;
             localStorage.setItem('dCookies', 0)
-
         }
         console.log(this.isLogin)
-        // Authorizing pages
-        // if (!this.isLogin) {
-        //     this.logout();
-        // }
     },
 };
 </script>
