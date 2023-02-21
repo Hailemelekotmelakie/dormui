@@ -1,11 +1,11 @@
 <template>
-<AppLogin @loggout="outLogger()" />
-<div style="display: none;" class="OThemeCheckboxMode">
-    <input type="checkbox" @click="switchTheme()" class="OThemeCheckbox" id="OThemeCheckbox" />
-    <label for="OThemeCheckbox" class="OThemeCheckboxLabel">
-        <div class="OThemeCheckboxBall"></div>
-    </label>
-</div>
+    <AppLogin @loggout="outLogger()" />
+    <div style="display: none;" class="OThemeCheckboxMode">
+        <input type="checkbox" @click="switchTheme()" class="OThemeCheckbox" id="OThemeCheckbox" />
+        <label for="OThemeCheckbox" class="OThemeCheckboxLabel">
+            <div class="OThemeCheckboxBall"></div>
+        </label>
+    </div>
 </template>
 
 <script>
@@ -25,10 +25,10 @@ export default {
 
     methods: {
         outLogger: function () {
-        this.logout()
-        window.location.reload()
+            this.logout()
+            window.location.reload()
         }
-    }
+    },
 };
 </script>
 

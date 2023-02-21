@@ -29,6 +29,5 @@ export default {
             this.logout();
         }
     },
-
 };
 </script>
