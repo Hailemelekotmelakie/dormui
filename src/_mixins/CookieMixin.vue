@@ -2,17 +2,19 @@
 export default {
     data() {
         return {
-            isLogin: false,
+            isLogin: localStorage.getItem('dCookies')
         };
     },
     methods: {
         logout: function () {
             document.cookie = "DORM =HI ; Max-Age=-1";
             this.$router.push("/");
-            this.isLogin = false
+            this.isLogin = 0
+            localStorage.setItem('dCookies', 0)
         },
     },
     mounted() {
+        console.log(this.isLogin)
         // check cookies
         let cookie = {};
         document.cookie.split(";").forEach(function (el) {
@@ -20,14 +22,18 @@ export default {
             cookie[k.trim()] = v;
         });
         if (cookie["DORM"]) {
-            this.isLogin = true;
+            this.isLogin = 1;
+            localStorage.setItem('dCookies', 1)
         } else {
-            this.isLogin = false;
+            this.isLogin = 0;
+            localStorage.setItem('dCookies', 0)
+
         }
+        console.log(this.isLogin)
         // Authorizing pages
-        if (!this.isLogin) {
-            this.logout();
-        }
+        // if (!this.isLogin) {
+        //     this.logout();
+        // }
     },
 };
 </script>

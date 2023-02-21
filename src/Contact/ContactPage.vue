@@ -15,7 +15,6 @@ export default {
     Axios.get(this.DORM_API + '/user').then((res) => {
       this.data = res.data
     })
-
   }
 }
 </script>
