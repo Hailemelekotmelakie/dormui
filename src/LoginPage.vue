@@ -1,56 +1,57 @@
 <template>
-    <div v-if="!isLogin && loginPage">
-        <div v-if="isFirstOnLogin">
-            <h2>Login jkkj</h2>
-            <h4 v-if="authResponse"> {{ authResponse }}</h4>
-            <input type="text" name="email" v-model="email" placeholder="email" /> <br />
-            <input type="text" v-model="password" placeholder="password" /><br />
-            <input @click="handleLogin()" type="button" value="login" />
-            <div @click="loginToForgotPassword()">Forgot password ?</div>
-            <h5>Have not account<span @click="loginPage = !loginPage">Create a new</span></h5>
-        </div>
-        <div v-else>
-            <div v-if="isFirstReset">
-                <div @click="forgotPasswordToLogin()">Back to login</div>
-                <div> forgot password</div>
-                <input type="email" placeholder="Put email" v-model="lostEmail">
-                <input type="button" @click="sentRestCode()" value="Send reset code" />
+    <div v-if="!LoggedIn">
+        <div v-if="loginPage">
+            <div v-if="isFirstOnLogin">
+                <h2>Login jkkj</h2>
+                <h4 v-if="authResponse"> {{ authResponse }}</h4>
+                <input type="text" name="email" v-model="email" placeholder="email" /> <br />
+                <input type="text" v-model="password" placeholder="password" /><br />
+                <input @click="handleLogin()" type="button" value="login" />
+                <div @click="loginToForgotPassword()">Forgot password ?</div>
+                <h5>Have not account<span @click="loginPage = !loginPage">Create a new</span></h5>
             </div>
             <div v-else>
-                <div v-if="isPasswordChanging">
-                    <div @click="comfirmToForget()">Back to forget password</div>
-                    <div>confirm Code</div>
-                    <input type="text" placeholder="code" v-model="code">
-                    <input type="button" @click="confirmCode()" value="Next" />
+                <div v-if="isFirstReset">
+                    <div @click="forgotPasswordToLogin()">Back to login</div>
+                    <div> forgot password</div>
+                    <input type="email" placeholder="Put email" v-model="lostEmail">
+                    <input type="button" @click="sentRestCode()" value="Send reset code" />
                 </div>
                 <div v-else>
-                    <div @click="passwordToCode()">Back to reset</div>
-                    <div>confirm Code</div>
-                    <input type="text" placeholder="password" v-model="newPassword">
-                    <input type="text" placeholder="password" v-model="confirmingPassword">
-                    <input type="button" @click="confirmPassword()" value="Confirm password" />
+                    <div v-if="isPasswordChanging">
+                        <div @click="comfirmToForget()">Back to forget password</div>
+                        <div>confirm Code</div>
+                        <input type="text" placeholder="code" v-model="code">
+                        <input type="button" @click="confirmCode()" value="Next" />
+                    </div>
+                    <div v-else>
+                        <div @click="passwordToCode()">Back to reset</div>
+                        <div>confirm Code</div>
+                        <input type="text" placeholder="password" v-model="newPassword">
+                        <input type="text" placeholder="password" v-model="confirmingPassword">
+                        <input type="button" @click="confirmPassword()" value="Confirm password" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div v-if="!isLogin && !loginPage">
-        <div v-if="isFirstOnSignup">
-            <h1>signup</h1>
-            <h4 v-if="authResponse">{{ authResponse }}</h4>
-            <input type="text" name="name" v-model="name" placeholder="Full Name" /> <br />
-            <input type="text" name="email" v-model="email" placeholder="email" /> <br />
-            <input type="text" v-model="password" placeholder="password" /><br />
-            <input @click="formValidator()" type="button" value="Next" />
-            <h5>Have an account <span @click="loginPage = !loginPage">Login here</span></h5>
+        <div v-if="!loginPage">
+            <div v-if="isFirstOnSignup">
+                <h1>signup</h1>
+                <h4 v-if="authResponse">{{ authResponse }}</h4>
+                <input type="text" name="name" v-model="name" placeholder="Full Name" /> <br />
+                <input type="text" name="email" v-model="email" placeholder="email" /> <br />
+                <input type="text" v-model="password" placeholder="password" /><br />
+                <input @click="formValidator()" type="button" value="Next" />
+                <h5>Have an account <span @click="loginPage = !loginPage">Login here</span></h5>
+            </div>
+            <div v-else>
+                <h4 @click="telToSignup()">back</h4>
+                <input type="tel" placeholder="+251947053537" v-model="tel">
+                <input type="submit" @click="handleSignup()" value="Register">
+            </div>
         </div>
-        <div v-else>
-            <h4 @click="telToSignup()">back</h4>
-            <input type="tel" placeholder="+251947053537" v-model="tel">
-            <input type="submit" @click="handleSignup()" value="Register">
-        </div>
     </div>
-
-    <div v-if="isLogin">
+    <div v-if="LoggedIn">
         <AppHeader @loggout="this.$emit('loggout')" />
     </div>
 </template>
@@ -110,7 +111,7 @@ export default {
                                 this.$router.push({
                                     path: "/"
                                 });
-                                this.isLogin = true;
+                                this.LoggedIn = 1;
                                 this.authResponse = undefined;
                             } else {
                                 this.authResponse = result.data;

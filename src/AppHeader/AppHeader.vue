@@ -7,7 +7,7 @@
     <router-link to="/"> Home </router-link>
     <router-link to="/contact"> contact </router-link>
     <div class="OThemeCheckboxMode">
-        <input type="checkbox" @click="switchTheme()" class="OThemeCheckbox" id="OThemeCheckbox" />
+        <input type="checkbox" @click="switchTheme()" class="OThemeCheckbox" id="OThemeCheckbox" />aa
         <label for="OThemeCheckbox" class="OThemeCheckboxLabel">
             <div class="OThemeCheckboxBall"></div>
         </label>

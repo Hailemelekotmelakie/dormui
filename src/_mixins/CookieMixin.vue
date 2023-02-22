@@ -5,7 +5,7 @@ export default {
 
     data() {
         return {
-            isLogin: null
+            LoggedIn: 0
         };
     },
     methods: {
@@ -13,21 +13,21 @@ export default {
             document.cookie = "DORM =HI ; Max-Age=-1";
             this.$router.push("/");
             // localStorage.setItem('z_c_c_v', 1)
-            this.isLogin = 1
+            this.LoggedIn = 0
         },
     },
     mounted() {
-        // this.isLogin = localStorage.getItem('z_c_c_v')
+        // this.LoggedIn = localStorage.getItem('z_c_c_v')
 
         if (VueCookies.get("DORM")) {
             // localStorage.setItem('z_c_c_v', 1)
-            this.isLogin = 1
+            this.LoggedIn = 1
         }
         if (VueCookies.get("DORM") == null) {
             // localStorage.setItem('z_c_c_v', 0)
-            this.isLogin = 0
+            this.LoggedIn = 0
         }
-        // console.log(this.isLogin)
+        // console.log(this.LoggedIn)
     },
 };
 </script>
