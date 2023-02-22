@@ -3,31 +3,39 @@ import VueCookies from 'vue-cookies'
 
 export default {
 
-    data() {
-        return {
-            LoggedIn: 0
-        };
-    },
     methods: {
         logout: function () {
-            document.cookie = "DORM =HI ; Max-Age=-1";
+            document.cookie = "DORM =HI ; Max-Age=-true";
             this.$router.push("/");
-            // localStorage.setItem('z_c_c_v', 1)
-            this.LoggedIn = 0
+            localStorage.setItem('z_c_c_v', false)
+            this.makeLogin = false
+            console.log(VueCookies.get("DORM"), "logout")
+
+        },
+        login: function () {
+            this.$router.push("/");
+            localStorage.setItem('z_c_c_v', true)
+            this.makeLogin = true
+            this.authResponse = undefined;
+            console.log(VueCookies.get("DORM"), "login")
+
         },
     },
     mounted() {
-        // this.LoggedIn = localStorage.getItem('z_c_c_v')
-
         if (VueCookies.get("DORM")) {
-            // localStorage.setItem('z_c_c_v', 1)
-            this.LoggedIn = 1
+            console.log(VueCookies.get("DORM"), "inner")
+
+            localStorage.setItem('z_c_c_v', true)
+            this.makeLogin = true
+            console.log(this.makeLogin, "mak lo in ")
+
         }
         if (VueCookies.get("DORM") == null) {
-            // localStorage.setItem('z_c_c_v', 0)
-            this.LoggedIn = 0
+            localStorage.setItem('z_c_c_v', false)
+            this.makeLogin = false
+            console.log(VueCookies.get("DORM"), "null")
+            console.log(this.makeLogin, "nu ll")
         }
-        // console.log(this.LoggedIn)
     },
 };
 </script>

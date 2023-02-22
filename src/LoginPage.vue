@@ -1,8 +1,11 @@
 <template>
-    <div v-if="!LoggedIn">
+    <div v-if="makeLogin">
+        <AppHeader @loggout="this.$emit('loggout')" />
+    </div>
+    <div v-else>
         <div v-if="loginPage">
             <div v-if="isFirstOnLogin">
-                <h2>Login jkkj</h2>
+                <h2>Login</h2>
                 <h4 v-if="authResponse"> {{ authResponse }}</h4>
                 <input type="text" name="email" v-model="email" placeholder="email" /> <br />
                 <input type="text" v-model="password" placeholder="password" /><br />
@@ -51,9 +54,6 @@
             </div>
         </div>
     </div>
-    <div v-if="LoggedIn">
-        <AppHeader @loggout="this.$emit('loggout')" />
-    </div>
 </template>
 
 <script>
@@ -92,7 +92,11 @@ export default {
             isFirstReset: true,
             isPasswordChanging: true,
 
+            makeLogin: true,
+
+
             getPost: null
+
 
         };
     },
@@ -111,8 +115,7 @@ export default {
                                 this.$router.push({
                                     path: "/"
                                 });
-                                this.LoggedIn = 1;
-                                this.authResponse = undefined;
+                                this.login()
                             } else {
                                 this.authResponse = result.data;
                             }
