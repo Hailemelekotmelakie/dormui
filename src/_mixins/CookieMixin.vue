@@ -10,12 +10,11 @@ export default {
             document.cookie = "DORM =HI ; Max-Age=-1";
             this.$router.push("/");
             localStorage.setItem('z_c_c_v', 0)
-            this.isLogin = localStorage.getItem('z_c_c_v')
+            this.isLogin = 0
         },
     },
     mounted() {
         console.log(this.isLogin)
-        // check cookies
         let cookie = {};
         document.cookie.split(";").forEach(function (el) {
             let [k, v] = el.split("=");
@@ -24,16 +23,13 @@ export default {
         console.log(cookie["DORM"], " COOKIES OF DORM")
         if (cookie["DORM"]) {
             localStorage.setItem('z_c_c_v', 1)
-            this.isLogin = localStorage.getItem('z_c_c_v')
-        } else {
+            this.isLogin = 1
+        }
+        if (cookie["DORM"] == undefined) {
             localStorage.setItem('z_c_c_v', 0)
-            this.isLogin = localStorage.getItem('z_c_c_v')
+            this.isLogin = 0
         }
         console.log(this.isLogin)
-        // Authorizing pages
-        // if (!this.isLogin) {
-        //     this.logout();
-        // }
     },
 };
 </script>
