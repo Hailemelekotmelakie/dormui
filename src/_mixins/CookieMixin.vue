@@ -5,7 +5,7 @@ export default {
 
     data() {
         return {
-            isLogin: localStorage.getItem('z_c_c_v')
+            isLogin: 1
         };
     },
     methods: {
@@ -17,13 +17,13 @@ export default {
         },
     },
     mounted() {
-        console.log(VueCookies.get('DORM'), " Vue cookie get")
+        this.isLogin = localStorage.getItem('z_c_c_v')
 
-        if (VueCookies.get('DORM')) {
+        if (VueCookies.get("DORM")) {
             localStorage.setItem('z_c_c_v', 1)
             this.isLogin = 1
         }
-        if (VueCookies.get('DORM') == null) {
+        if (VueCookies.get("DORM") == null) {
             localStorage.setItem('z_c_c_v', 0)
             this.isLogin = 0
         }
