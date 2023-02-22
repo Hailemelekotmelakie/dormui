@@ -2,7 +2,7 @@
 export default {
     data() {
         return {
-            isLogin: localStorage.getItem('dCookies')
+            isLogin: localStorage.getItem('z_c_c_v')
         };
     },
     methods: {
@@ -10,7 +10,7 @@ export default {
             document.cookie = "DORM =HI ; Max-Age=-1";
             this.$router.push("/");
             this.isLogin = 0
-            localStorage.setItem('dCookies', 0)
+            localStorage.setItem('z_c_c_v', 0)
         },
     },
     mounted() {
@@ -22,11 +22,11 @@ export default {
             cookie[k.trim()] = v;
         });
         if (cookie["DORM"]) {
-            // this.isLogin = 1;
-            localStorage.setItem('dCookies', 1)
+            this.isLogin = 1;
+            localStorage.setItem('z_c_c_v', 1)
         } else {
-            // this.isLogin = 0;
-            localStorage.setItem('dCookies', 0)
+            this.isLogin = 0;
+            localStorage.setItem('z_c_c_v', 0)
 
         }
         console.log(this.isLogin)
