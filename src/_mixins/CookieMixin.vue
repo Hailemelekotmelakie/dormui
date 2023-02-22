@@ -9,8 +9,8 @@ export default {
         logout: function () {
             document.cookie = "DORM =HI ; Max-Age=-1";
             this.$router.push("/");
-            this.isLogin = 0
             localStorage.setItem('z_c_c_v', 0)
+            this.isLogin = localStorage.getItem('z_c_c_v')
         },
     },
     mounted() {
@@ -21,13 +21,13 @@ export default {
             let [k, v] = el.split("=");
             cookie[k.trim()] = v;
         });
+        console.log(cookie["DORM"], " COOKIES OF DORM")
         if (cookie["DORM"]) {
-            this.isLogin = 1;
             localStorage.setItem('z_c_c_v', 1)
+            this.isLogin = localStorage.getItem('z_c_c_v')
         } else {
-            this.isLogin = 0;
             localStorage.setItem('z_c_c_v', 0)
-
+            this.isLogin = localStorage.getItem('z_c_c_v')
         }
         console.log(this.isLogin)
         // Authorizing pages
