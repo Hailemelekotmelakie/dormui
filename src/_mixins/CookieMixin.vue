@@ -1,5 +1,8 @@
 <script>
+import VueCookies from 'vue-cookies'
+
 export default {
+
     data() {
         return {
             isLogin: localStorage.getItem('z_c_c_v')
@@ -14,18 +17,13 @@ export default {
         },
     },
     mounted() {
-        console.log(this.isLogin)
-        let cookie = {};
-        document.cookie.split(";").forEach(function (el) {
-            let [k, v] = el.split("=");
-            cookie[k.trim()] = v;
-        });
-        console.log(cookie["DORM"], " COOKIES OF DORM")
-        if (cookie["DORM"]) {
+        console.log(VueCookies.get('DORM'), " Vue cookie get")
+
+        if (VueCookies.get('DORM')) {
             localStorage.setItem('z_c_c_v', 1)
             this.isLogin = 1
         }
-        if (cookie["DORM"] == undefined) {
+        if (VueCookies.get('DORM') == null) {
             localStorage.setItem('z_c_c_v', 0)
             this.isLogin = 0
         }
