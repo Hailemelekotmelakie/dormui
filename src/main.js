@@ -1,4 +1,6 @@
 import { createApp } from "vue";
+import VueCookies from 'vue-cookies';
+
 import { createRouter, createWebHistory } from 'vue-router'
 
 import App from "./App.vue";
@@ -22,5 +24,5 @@ const router = createRouter({
     ]
 })
 
-createApp(App).use(router).mount("#app");
+createApp(App).use(router).use(VueCookies).mount("#app");
 

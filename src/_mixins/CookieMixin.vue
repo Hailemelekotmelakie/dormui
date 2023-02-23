@@ -1,5 +1,4 @@
 <script>
-import VueCookies from 'vue-cookies'
 
 export default {
     methods: {
@@ -14,26 +13,25 @@ export default {
             localStorage.setItem('z_c_c_v', true)
             this.makeLogin = true
             this.authResponse = undefined;
-            console.log(VueCookies.get("DORM"), "login")
+            console.log(this.$cookies.get("DORM"))
         },
     },
     mounted() {
-        console.log(VueCookies.get("DORM"), "nu DORM ll")
+        console.log(this.$cookies.get("DORM"), "nu DORM ll")
         console.log(localStorage.getItem('z_c_c_v'), "z_c_c_v")
-        if (VueCookies.get("DORM")) {
-            console.log(VueCookies.get("DORM"), " inner")
+        if (this.$cookies.get("DORM")) {
+            console.log(this.$cookies.get("DORM"), " inner")
             localStorage.setItem('z_c_c_v', true)
             this.makeLogin = true
             console.log(this.makeLogin, "mak lo in ")
 
         }
-        if (VueCookies.get("DORM") == null) {
+        if (this.$cookies.get("DORM") == null) {
             localStorage.setItem('z_c_c_v', false)
             this.makeLogin = false
-            console.log(VueCookies.get("DORM"), "dorm iin null")
+            console.log(this.$cookies.get("DORM"), "dorm iin null")
             console.log(this.makeLogin, "nu ll")
         }
-
     },
 };
 </script>
