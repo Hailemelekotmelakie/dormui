@@ -97,7 +97,6 @@ export default {
     methods: {
         loggout: function () {
             this.logout()
-            window.location.reload()
         },
         handleLogin: function () {
             Axios.defaults.withCredentials = true;

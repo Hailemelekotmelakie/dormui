@@ -5,6 +5,7 @@ export default {
             document.cookie = "DORM =HI ; Max-Age=0";
             this.$router.push("/");
             localStorage.setItem('z_c_c_v', 0)
+            window.location.reload()
         },
         login: function () {
             this.$router.push("/");
@@ -12,11 +13,6 @@ export default {
             this.authResponse = undefined;
             window.location.reload()
         },
-    },
-    mounted() {
-        console.log(this.$cookies.get('DORM'))
-        console.log(this.$cookies.get('DORM'), "dorm")
-        console.log(this.cookies, "cookie")
     },
     computed: {
         mannon() {
