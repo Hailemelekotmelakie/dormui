@@ -1,6 +1,6 @@
 <template>
     <div v-if="makeLogin">
-        <AppHeader @loggout="this.$emit('loggout')" />
+        <AppHeader @loggout="loggout()" />
     </div>
     <div v-else>
         <div v-if="loginPage">
@@ -101,6 +101,10 @@ export default {
         };
     },
     methods: {
+        loggout: function () {
+            this.logout()
+            window.location.reload()
+        },
         handleLogin: function () {
             Axios.defaults.withCredentials = true;
             Axios.post(this.DORM_API + "/log", {

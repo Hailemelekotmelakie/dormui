@@ -18,12 +18,11 @@
 
 <script>
 import ThemeCheckbox from "../_mixins/ThemeMixin.vue";
-import CookieMixin from "../_mixins/CookieMixin.vue";
 
 export default {
     name: "AppHeader",
     emits: ["loggout"],
-    mixins: [ThemeCheckbox, CookieMixin]
+    mixins: [ThemeCheckbox]
 };
 </script>
 

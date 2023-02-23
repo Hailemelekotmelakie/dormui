@@ -11,7 +11,6 @@
 <script>
 import AppLogin from "./LoginPage.vue";
 import ThemeMixins from "./_mixins/ThemeMixin.vue";
-import cookieMixin from "./_mixins/CookieMixin.vue";
 
 export default {
     name: "App",
@@ -21,14 +20,7 @@ export default {
     components: {
         AppLogin,
     },
-    mixins: [ThemeMixins, cookieMixin],
-
-    methods: {
-        outLogger: function () {
-            this.logout()
-            window.location.reload()
-        }
-    },
+    mixins: [ThemeMixins],
 };
 </script>
 
