@@ -10,6 +10,7 @@ export default {
             this.$router.push("/");
             localStorage.setItem('z_c_c_v', 1)
             this.authResponse = undefined;
+            window.location.reload()
         },
     },
     computed: {
