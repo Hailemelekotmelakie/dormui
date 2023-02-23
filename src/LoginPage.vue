@@ -1,5 +1,5 @@
 <template>
-    <div v-if="makeLogin">
+    <div v-if="this.$cookies.get('DORM')">
         <AppHeader @loggout="loggout()" />
     </div>
     <div v-else>
@@ -92,8 +92,7 @@ export default {
             isFirstReset: true,
             isPasswordChanging: true,
 
-            makeLogin: true,
-
+            // makeLogin: true,
 
             getPost: null
 
