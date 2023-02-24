@@ -10,12 +10,12 @@ export default {
         login: function () {
             this.$router.push("/");
             localStorage.setItem('z_c_c_v', 1)
-            this.authResponse = undefined;
+            this.authResponse = null;
             window.location.reload()
         },
     },
     computed: {
-        mannon() {
+        isLoginBefore() {
             return localStorage.getItem('z_c_c_v')
         }
     },

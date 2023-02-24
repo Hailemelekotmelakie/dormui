@@ -191,8 +191,8 @@ export default {
 
   /* Ancher colors */
   --ancherTextColor: #0d6fd2;
-  --lightAncherTextColor: #076dd4;
-  --darkAncherTextColor: #8191a1;
+  /* --lightAncherTextColor: #076dd4;
+  --darkAncherTextColor: #8191a1; */
 }
 
 * {
@@ -205,6 +205,7 @@ body {
   background-color: var(--backgroundColor);
   color: var(--textColor);
 }
+
 a {
   color: var("--ancherTextColor");
 }
