@@ -204,6 +204,7 @@ export default {
 body {
   background-color: var(--backgroundColor);
   color: var(--textColor);
+  font-family: sans-serif;
 }
 
 a {

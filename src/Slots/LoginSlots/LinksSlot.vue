@@ -7,6 +7,7 @@
 .link {
     display: flex;
     font-size: 20px;
+    color: var(--ancherTextColor);
     cursor: pointer;
 }
 

@@ -5,10 +5,11 @@
 </template>
 <style scoped>
 .errorContainer {
-    background-color: rgba(216, 49, 49, 0.675);
+    background-color: rgba(216, 49, 49, 0.307);
+    border-left: 10px solid rgb(235, 13, 13);
     padding: 10px 10px;
-    width: 80%;
+    width: 100%;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 </style>

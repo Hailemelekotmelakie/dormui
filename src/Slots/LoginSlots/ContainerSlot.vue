@@ -92,9 +92,9 @@
     position: absolute;
     display: block;
     list-style: none;
-    width: 20px;
-    height: 20px;
-    background: rgb(55, 146, 129);
+    width: 40px;
+    height: 40px;
+    background: var(--buttonColor);
     animation: animate 19s linear infinite;
     z-index: -999;
 }
