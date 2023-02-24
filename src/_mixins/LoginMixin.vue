@@ -9,6 +9,7 @@ export default {
             name: null,
             tel: null,
             signupError: null,
+            phoneError: null,
             resetCredential: null,
             newPassword: null,
             confirmingNewPassword: null,
@@ -68,15 +69,28 @@ export default {
             }
         },
         handleSignup: function () {
-            Axios.post(this.DORM_API + '/user', {
-                fullname: this.name,
-                email: this.email,
-                password: this.password,
-                tel: this.tel
-            }).then(() => {
-                console.log(this.name, this.password)
-                this.handleLogin();
-            }).catch((e) => console.log(e))
+            this.phoneError = null
+            if (this.tel && this.email && this.password) {
+                if (this.tel.length >= 9) {
+                    Axios.post(this.DORM_API + '/user', {
+                        fullname: this.name,
+                        email: this.email,
+                        password: this.password,
+                        tel: this.tel
+                    }).then((result) => {
+                        if (result.data.message == "success") {
+                            this.handleLogin();
+                        } else {
+                            this.phoneError = result.data.message
+                        }
+                    }).catch((e) => console.log(e))
+                } else {
+                    this.phoneError = "Invalid phone number"
+                }
+            }
+            else {
+                this.phoneError = "The field is required"
+            }
         },
         signupToTel: function () {
             this.isFirstOnSignup = false;

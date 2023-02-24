@@ -114,7 +114,8 @@
             <EMDS v-else>
                 <LinksSlot @click="telToSignup()">Back</LinksSlot>
                 <form class="forms">
-                    <HeaderSlot> Enter Your Phone Number</HeaderSlot>
+                    <ErrorSlot v-if="phoneError">phoneError</ErrorSlot>
+                    <HeaderSlot>Enter Your Phone Number</HeaderSlot>
                     <input id="phone" :class="{ 'fuccussed': hasFocus }" @focus="onFocus" @blur="onBlur" class="inputs"
                         type="tel" placeholder="+251947053537" v-model="tel">
                     <ButtonSlot @click="handleSignup()">Register</ButtonSlot>
