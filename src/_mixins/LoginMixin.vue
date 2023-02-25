@@ -52,7 +52,7 @@ export default {
         },
         handleLogin: function () {
             if (this.email && this.password) {
-                if (this.email.includes('@') && this.email.includes('.') && this.email.indexOf('@') + 1 < this.email.indexOf('.') && this.email.indexOf('@') > 1) {
+                if (this.email.includes('@') && this.email.includes('.') && this.email.indexOf('@') + 1 < this.email.lastIndexOf('.') && this.email.indexOf('@') > 1) {
                     if (this.password.length >= 4) {
                         Axios.defaults.withCredentials = true;
                         Axios.post(this.DORM_API + "/log", {
@@ -207,8 +207,14 @@ export default {
             this.signupError = null
             if (this.name && this.email && this.password) {
                 if (this.password.length >= 4) {
-                    if (this.email.includes('@') && this.email.includes('.') && this.email.indexOf('@') + 1 < this.email.indexOf('.') && this.email.indexOf('@') > 1) {
-                        this.signupToTel()
+                    if (this.email.includes('@') && this.email.includes('.') && this.email.indexOf('@') + 1 < this.email.lastIndexOf('.') && this.email.indexOf('@') > 1) {
+                        Axios.post(`${this.DORM_API}/user/checkEmail`, { email: this.email }).then((result) => {
+                            if (result.data.message == "notFound") {
+                                this.signupToTel()
+                            } else {
+                                this.signupError = result.data.message
+                            }
+                        })
                     } else {
                         this.signupError = "Invalid email adress"
                     }
