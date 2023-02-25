@@ -1,5 +1,5 @@
 <template >
-    <div>
+    <div @mouseleave="menuModalSwitcherOff()">
         <div @click="menuModalSwitcher()" class="menuContainer">
             <div class="menu menu1"></div>
             <div class="menu menu2"></div>
@@ -23,19 +23,17 @@
             </EachLinksSlot>
             <EachLinksSlot @click="switchTheme()">
                 <div class="OThemeCheckboxMode">
-                    <input type="checkbox" @click="switchTheme()" class="OThemeCheckbox" id="OThemeCheckbox" />Night Mode
+                    <input type="checkbox" @click="switchTheme()" class="OThemeCheckbox" id="OThemeCheckbox" /> Night Mode
                     &emsp;&emsp;&emsp;&emsp; <label for="OThemeCheckbox" class="OThemeCheckboxLabel">
                         <div class="OThemeCheckboxBall"></div>
                     </label>
                 </div>
             </EachLinksSlot>
-            <EachLinksSlot>
-                <div @click="this.$emit('loggout')">Logout</div>
-            </EachLinksSlot>
-
+            <EachLinksSlot> Report bug </EachLinksSlot>
+            <EachLinksSlot @click="this.$emit('loggout')"> Logout </EachLinksSlot>
         </MenuContainerSlot>
-        <router-view />
     </div>
+    <router-view />
 </template>
 
 <script>

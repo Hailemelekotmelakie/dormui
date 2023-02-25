@@ -1,5 +1,7 @@
 import { createApp } from "vue";
 import VueCookies from 'vue-cookies';
+import vClickOutside from 'v-click-outside'
+
 
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -32,5 +34,5 @@ const router = createRouter({
     ]
 })
 
-createApp(App).use(router).use(VueCookies).mount("#app");
+createApp(App).use(vClickOutside).use(router).use(VueCookies).mount("#app");
 
