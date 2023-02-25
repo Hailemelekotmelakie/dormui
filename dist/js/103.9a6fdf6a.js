@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkdorm"]=self["webpackChunkdorm"]||[]).push([[103],{7103:function(t,n,a){a.r(n),a.d(n,{default:function(){return i}});var r=a(3396),u=a(7139);const e=(0,r._)("h2",null,"para contact",-1);function c(t,n,a,c,d,l){return(0,r.wg)(),(0,r.iD)(r.HY,null,[e,(0,r._)("p",null,(0,u.zw)(d.data),1)],64)}var d=a(5939),l={inject:["DORM_API"],data(){return{data:null}},mounted(){d.Z.get(this.DORM_API+"/user").then((t=>{this.data=t.data}))}},s=a(89);const o=(0,s.Z)(l,[["render",c]]);var i=o}}]);
-//# sourceMappingURL=103.9a6fdf6a.js.map

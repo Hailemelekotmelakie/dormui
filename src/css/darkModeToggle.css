@@ -29,6 +29,7 @@
     background: var(--buttonColor);
     border-radius: 50px;
     position: relative;
+    cursor: pointer;
 }
 
 .OThemeCheckboxBall {

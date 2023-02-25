@@ -13,8 +13,16 @@ const router = createRouter({
             component: () => import('@/Homepage/HomePage.vue')
         },
         {
-            path: '/contact',
-            component: () => import('@/Contact/ContactPage.vue')
+            path: '/chats',
+            component: () => import('@/Chats/ContactChats.vue')
+        },
+        {
+            path: '/channels',
+            component: () => import('@/Channels/ChannelPage')
+        },
+        {
+            path: '/groups',
+            component: () => import('@/Groups/GroupPage')
         },
         {
             path: '/:pathMatch(.*)*',

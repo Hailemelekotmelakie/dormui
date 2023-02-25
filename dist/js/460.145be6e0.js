@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkdorm"]=self["webpackChunkdorm"]||[]).push([[460],{3460:function(r,n,u){u.r(n),u.d(n,{default:function(){return a}});var e=u(3396);function t(r,n){return(0,e.wg)(),(0,e.iD)("p",null,"Groups")}var c=u(89);const o={},s=(0,c.Z)(o,[["render",t]]);var a=s}}]);
+//# sourceMappingURL=460.145be6e0.js.map

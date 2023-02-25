@@ -4,6 +4,7 @@
     width: min-content;
     border-radius: 100%;
     padding: 5px;
+    align-items: flex-end;
     cursor: pointer;
 }
 
@@ -14,8 +15,25 @@
 .menu {
     display: flex;
     background-color: var(--textBlurColor);
-    height: 2.5px;
-    width: 21px;
     border-radius: 5px;
     margin: 2.3px;
+}
+
+.menu1 {
+    height: 2.8px;
+    width: 25px;
+}
+
+.menu2 {
+    height: 2.8px;
+    width: 20px;
+}
+
+.menu3 {
+    height: 2.8px;
+    width: 25px;
+}
+
+.menuContainer:hover>.menu2 {
+    width: 25px;
 }
