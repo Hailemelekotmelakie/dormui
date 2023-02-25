@@ -167,7 +167,7 @@ export default {
 body {
   background-color: var(--backgroundColor);
   color: var(--textColor);
-  font-family: sans-serif;
+  font-family: Roboto, -apple-system, apple color emoji, BlinkMacSystemFont, Segoe UI, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 }
 
 a {

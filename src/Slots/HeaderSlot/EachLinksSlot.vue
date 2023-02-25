@@ -7,7 +7,7 @@
 .linkContainer {
     box-sizing: border-box;
     color: var(--textColor);
-    padding: 10px;
+    padding: 10px 25px;
     cursor: pointer;
     font-weight: 600;
     font-size: 15px;
