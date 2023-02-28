@@ -36,7 +36,7 @@ export default {
       // For blur button dark
       root.style.setProperty(
         "--buttonBlurColor",
-        getComputedStyle(root).getPropertyValue("------darkButtonHoverColor")
+        getComputedStyle(root).getPropertyValue("--darkButtonHoverColor")
       );
       // For text dark
       root.style.setProperty(
@@ -46,12 +46,17 @@ export default {
       // For blur text dark
       root.style.setProperty(
         "--textBlurColor",
-        getComputedStyle(root).getPropertyValue("----darkTextBlurColor")
+        getComputedStyle(root).getPropertyValue("--darkTextBlurColor")
       );
       // For Colorized text dark
       root.style.setProperty(
         "--colorizedTextColor",
-        getComputedStyle(root).getPropertyValue("------darkColorizedTextColor")
+        getComputedStyle(root).getPropertyValue("--darkColorizedTextColor")
+      );
+      // unread Budget Background dark
+      root.style.setProperty(
+        "--unreadBudgetBackground",
+        getComputedStyle(root).getPropertyValue("--darkUnreadBudgetBackground")
       );
 
     },
@@ -93,6 +98,12 @@ export default {
         "--colorizedTextColor",
         getComputedStyle(root).getPropertyValue("--lightColorizedTextColor")
       );
+      // unread Budget Background light
+      root.style.setProperty(
+        "--unreadBudgetBackground",
+        getComputedStyle(root).getPropertyValue("--lightUnreadBudgetBackground")
+      );
+
 
     }
   },
@@ -118,14 +129,14 @@ export default {
 :root {
 
   /* body background  */
-  --backgroundColor: white;
-  --lightBackgroundColor: white;
-  --darkBackgroundColor: #1c2732;
+  --backgroundColor: #fff;
+  --lightBackgroundColor: #fff;
+  --darkBackgroundColor: #35424f;
 
   /* blur background  */
-  --blurBackgroundColor: #e8e8e8;
-  --lightBlurBackgroundColor: #e8e8e8;
-  --darkBlurBackgroundColor: #28323b;
+  --blurBackgroundColor: #eeececcf;
+  --lightBlurBackgroundColor: #eeececcf;
+  --darkBlurBackgroundColor: #2d3945;
 
   /* Button colors */
   --buttonColor: #41b3e7;
@@ -151,6 +162,11 @@ export default {
   --textBlurColor: #8191a1;
   --lightTextBlurColor: #8191a1;
   --darkTextBlurColor: #708499;
+
+  /* unread budget background */
+  --unreadBudgetBackground: #6aa7e3;
+  --lightUnreadBudgetBackground: #6aa7e3;
+  --darkUnreadBudgetBackground: #23303d;
 
   /* Ancher colors */
   --ancherTextColor: #0d6fd2;

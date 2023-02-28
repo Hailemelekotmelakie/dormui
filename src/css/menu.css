@@ -1,3 +1,24 @@
+.router-link-active {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.applicationHeader {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--backgroundColor);
+    top: 0;
+    position: sticky;
+    position: -webkit-sticky;
+    border-bottom: 2px solid var(--blurBackgroundColor);
+    height: 50px;
+    padding: 0 34px;
+}
+
 .menuContainer {
     display: flex;
     flex-direction: column;

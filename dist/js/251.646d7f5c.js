@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkdorm"]=self["webpackChunkdorm"]||[]).push([[251],{251:function(n,r,e){e.r(r),e.d(r,{default:function(){return d}});var u=e(3396);function t(n,r){return(0,u.wg)(),(0,u.iD)("div",null,"Chats page")}var a=e(89);const c={},s=(0,a.Z)(c,[["render",t]]);var d=s}}]);
-//# sourceMappingURL=251.646d7f5c.js.map

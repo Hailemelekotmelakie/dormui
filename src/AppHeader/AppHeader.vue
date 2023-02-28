@@ -1,9 +1,11 @@
 <template >
     <div @mouseleave="menuModalSwitcherOff()">
-        <div @click="menuModalSwitcher()" class="menuContainer">
-            <div class="menu menu1"></div>
-            <div class="menu menu2"></div>
-            <div class="menu menu3"></div>
+        <div class="applicationHeader">
+            <div @click="menuModalSwitcher()" class="menuContainer">
+                <div class="menu menu1"></div>
+                <div class="menu menu2"></div>
+                <div class="menu menu3"></div>
+            </div>
         </div>
         <MenuContainerSlot v-if="menuModalToggle">
             <router-link @click="menuModalSwitcher()" to="/">
@@ -32,15 +34,15 @@
             <EachLinksSlot> Report bug </EachLinksSlot>
             <EachLinksSlot @click="this.$emit('loggout')"> Logout </EachLinksSlot>
         </MenuContainerSlot>
+        <router-view />
     </div>
-    <router-view />
 </template>
 
 <script>
 import ThemeCheckbox from "../_mixins/ThemeMixin.vue";
 import MenuToggleMixin from "../_mixins/MenuToggleMixin.vue";
-import MenuContainerSlot from "../Slots/HeaderSlot/MenuContainerSlot.vue";
-import EachLinksSlot from "../Slots/HeaderSlot/EachLinksSlot.vue"
+import MenuContainerSlot from "../Slots/HeaderSlots/MenuContainerSlot.vue";
+import EachLinksSlot from "../Slots/HeaderSlots/EachLinksSlot.vue"
 export default {
     name: "AppHeader",
     emits: ["loggout"],
@@ -55,12 +57,4 @@ export default {
 <style scoped src="@/css/menu.css"></style>
 <style scoped src="@/css/darkModeToggle.css"></style>
 
-<style scoped>
-.router-link-active {
-    text-decoration: none;
-}
-
-a {
-    text-decoration: none;
-}
-</style>
+<style scoped></style>
