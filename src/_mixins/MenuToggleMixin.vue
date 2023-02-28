@@ -1,5 +1,4 @@
 <script>
-
 export default {
     data() {
         return {
@@ -14,6 +13,5 @@ export default {
             this.menuModalToggle = false
         },
     }
-
 }
 </script>
