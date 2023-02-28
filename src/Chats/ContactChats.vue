@@ -1,23 +1,17 @@
 <template>
     <div class="allChatsContainer">
         <div class="leftChatsContainer">
-            <a href="#" v-for="i in 12" :key="i" class="oneChatContainer">
+            <a href="#" v-for="user in users" :key="user.id" class="oneChatContainer">
                 <div class="oneChatContainerLeft">
                     <img width="50px" height="50px" class="profileImage"
-                        src="../assets/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" alt="icon">
+                        src="../assets/jonatan-pie-3l3RwQdHRHg-unsplash.svg" alt="icon">
                 </div>
                 <div class="oneChatContainerRight">
-                    <div class="oneChatContainerRightUp"><span class="up1"> {{ i }} TELEGRAM campusUp wards
-                            campusUp
-                            wards campusUp
-                            wards
-                            campusUp wards campusUp wards campusUp wards campusUp wards campusUp wards campusUp wards
-                            campusUp
-                            wards campusUp wards campusUp wards campusUp wards campus</span> <span class="up2">
-                            &check;&check; 6 hrs
-                            ago</span>
+                    <div class="oneChatContainerRightUp"><span class="up1"> {{ user.fullname }}</span> <span class="up2">
+                            &check;&check; {{ user.timeAgo }}</span>
                     </div>
-                    <div class="oneChatContainerRightDown"><span class="down1">Down</span> <span class="down2">3</span>
+                    <div class="oneChatContainerRightDown"><span class="down1">{{ user.admin }}</span> <span
+                            class="down2">3</span>
                     </div>
                 </div>
             </a>
@@ -48,8 +42,8 @@
                 </div>
             </div>
             <div class="textAreaContainer">
-                <textarea @focus="resizeTextarea" @keyup="resizeTextarea" id="message" class="message"
-                    placeholder="Message"></textarea>
+                <textarea @keypress="resizeTextarea" :class="{ 'fuccussed': hasFocus }" @focus="onFocus" @blur="onBlur()"
+                    v-on:blur="resizeTextareaAbort" id="message" class="message" placeholder="Message" cols="1"></textarea>
                 <label v-html="htmlAttachment" class="labelForFile" for="file">
                 </label>
                 <input id="file" style="display: none;" type="file">
@@ -61,17 +55,16 @@
     </div>
 </template>
 <script>
-import ContactsChatMixin from '@/_mixins/ContactsChatMixin.vue';
+import ContactsChatMixin from '../_mixins/ContactsChatMixin.vue';
 export default {
     mixins: [ContactsChatMixin],
-    methods: {
-        resizeTextarea(e) {
-            let area = e.target;
-            area.style.overflow = 'hidden';
-            console.log(area.scrollHeight)
-            area.style.height = area.scrollHeight + 'px';
+    data() {
+        return {
+            hasFocus: null,
+            users: []
         }
-    }
+    },
+
 }
 </script>
 <style src="../css/ContactsChat.css"></style>
@@ -113,4 +106,7 @@ body {
 /* 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~unchangeable~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
+.fuccussed {
+    border: 1.5px solid var(--colorizedTextColor);
+}
 </style>

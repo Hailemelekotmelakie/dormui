@@ -268,7 +268,7 @@
     display: flex;
     border-radius: 8px;
     max-height: 300px;
-    height: 50px;
+    height: 44px;
     outline: none;
     font-size: 16px;
     border: 2px solid var(--blurBackgroundColor);
@@ -313,7 +313,12 @@
     fill: var(--buttonColor)
 }
 
+
 @keyframes mySendMove {
+
+    0% {
+        transform: skewX(0deg);
+    }
 
     0% {
         transform: scale(1);
@@ -327,6 +332,10 @@
         transform: scale(1.1);
     }
 
+    50% {
+        transform: skewX(20deg);
+    }
+
     25% {
         transform: scale(1.1);
     }
@@ -336,6 +345,7 @@
     }
 
     100% {
+        transform: skewX(0deg);
         transform: scale(1);
     }
 }

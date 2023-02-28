@@ -1,5 +1,8 @@
 <script>
+import Axios from 'axios';
 export default {
+    inject: ['DORM_API'],
+
     data() {
         return {
             htmlAttachment: `<svg height="23px" width="23px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -27,6 +30,31 @@ export default {
                         </g>
                     </svg>`
         }
+    },
+    methods: {
+        onFocus() {
+            this.hasFocus = true;
+        },
+        onBlur() {
+            this.hasFocus = false;
+        },
+        resizeTextarea(e) {
+            let area = e.target;
+            area.style.overflow = 'hidden';
+            console.log(area)
+            area.style.height = 90 + 'px';
+        },
+        resizeTextareaAbort(e) {
+            let area = e.target;
+            area.style.overflow = 'hidden';
+            console.log(area)
+            area.style.height = 60 + 'px';
+        }
+    },
+    mounted() {
+        Axios.get(`${this.DORM_API}/user`).then((result) => {
+            this.users = result.data
+        })
     }
 }
 </script>
