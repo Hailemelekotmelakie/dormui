@@ -52,6 +52,7 @@ export default {
         }
     },
     mounted() {
+        Axios.defaults.withCredentials = true;
         Axios.get(`${this.DORM_API}/user`).then((result) => {
             this.users = result.data
         })

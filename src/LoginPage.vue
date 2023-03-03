@@ -109,7 +109,7 @@
                         <span v-if="showPassword1" v-html="htmlSlashEye" @click="toggleShowPassword1()"
                             class="passwordText"></span>
                     </div>
-                    <ButtonSlot @click="formValidator()">Next </ButtonSlot>
+                    <ButtonSlot @click="formValidator()">Next </ButtonSlot>{{ this.latitude }}
                 </form>
                 <LinksSlot @click="loginPage = !loginPage">Have an account login here</LinksSlot>
             </EMDS>

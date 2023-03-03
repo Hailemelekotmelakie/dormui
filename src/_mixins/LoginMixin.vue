@@ -43,7 +43,10 @@ export default {
             isFirstOnLogin: true,
             isFirstReset: true,
             isPasswordChanging: true,
-            getPost: null
+            getPost: null,
+            latitude: null,
+            longitude: null,
+            geolocationError: null
         };
     },
     methods: {
@@ -88,14 +91,19 @@ export default {
             }
         },
         handleSignup: function () {
+            Axios.defaults.withCredentials = true;
             this.phoneError = null
             if (this.tel && this.email && this.password) {
                 if (this.tel.length >= 9) {
+
                     Axios.post(this.DORM_API + '/user', {
                         fullname: this.name,
                         email: this.email,
                         password: this.password,
-                        tel: this.tel
+                        tel: this.tel,
+                        latitude: this.latitude,
+                        longitude: this.longitude,
+                        geolocationError: this.geolocationError
                     }).then((result) => {
                         if (result.data.message == "success") {
                             this.handleLogin();
@@ -124,6 +132,7 @@ export default {
             this.isFirstOnLogin = true
         },
         sentRestCode: function () {
+            Axios.defaults.withCredentials = true;
             this.emailNotFound = false;
             if (this.lostEmail) {
                 if (this.lostEmail.includes('@') && this.lostEmail.includes('.') && this.lostEmail.indexOf('@') + 1 < this.lostEmail.indexOf('.') && this.lostEmail.indexOf('@') > 1) {
@@ -161,6 +170,7 @@ export default {
             this.confirmCodeNumber = null
         },
         confirmCode: function () {
+            Axios.defaults.withCredentials = true;
             this.confirmCodeNumber = false
             if (this.resetCredential) {
                 Axios.get(this.DORM_API + `/user/${this.id}/${this.resetCredential}`).then((result) => {
@@ -204,6 +214,7 @@ export default {
         },
 
         formValidator: function () {
+            this.getLocation()
             this.signupError = null
             if (this.name && this.email && this.password) {
                 if (this.password.length >= 4) {
@@ -225,6 +236,34 @@ export default {
                 this.signupError = "All are required"
             }
         },
+        getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
+            } else {
+                this.geolocationError = "Geolocation is not supported by this browser.";
+            }
+        },
+        showPosition(position) {
+            this.latitude = position.coords.latitude
+            this.longitude = position.coords.longitude;
+        },
+        showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    this.geolocationError = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    this.geolocationError = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    this.geolocationError = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    this.geolocationError = "An unknown error occurred."
+                    break;
+            }
+        }
+
     },
 }
 </script>
