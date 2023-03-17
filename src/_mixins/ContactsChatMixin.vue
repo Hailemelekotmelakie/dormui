@@ -2,7 +2,6 @@
 import Axios from 'axios';
 export default {
     inject: ['DORM_API'],
-
     data() {
         return {
             htmlAttachment: `<svg height="23px" width="23px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +40,6 @@ export default {
         resizeTextarea(e) {
             let area = e.target;
             area.style.overflow = 'hidden';
-            console.log(area)
             area.style.height = 90 + 'px';
         },
         resizeTextareaAbort(e) {
@@ -49,13 +47,48 @@ export default {
             area.style.overflow = 'hidden';
             console.log(area)
             area.style.height = 60 + 'px';
-        }
+        },
+        writeToRightPanel: function (friendId) {
+            if (this.$route.params.friendId || friendId) {
+                this.$router.push({
+                    path: `/chat/${friendId || this.$route.params.friendId}`
+                });
+                Axios.defaults.withCredentials = true;
+                Axios.post(`${this.DORM_API}/chat/${friendId || this.$route.params.friendId}`).then((result) => {
+                    this.chats = result.data;
+                    this.scrollToBottom()
+                })
+            }
+        },
+        sendChatToFriend: function () {
+            if (this.$route.params.friendId && this.message.trim()) {
+                Axios.post(`${this.DORM_API}/chat`, {
+                    receiver: this.$route.params.friendId,
+                    text: this.message.trim()
+                }).then((res) => {
+                    if (res.data.message == "success") {
+                        this.message = null
+                        this.writeToRightPanel()
+                        this.scrollToBottom()
+                    }
+                })
+            }
+        },
+
+        scrollToBottom: function () {
+            document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight
+        },
     },
     mounted() {
+        this.writeToRightPanel()
         Axios.defaults.withCredentials = true;
-        Axios.get(`${this.DORM_API}/user`).then((result) => {
-            this.users = result.data
+        Axios.get(`${this.DORM_API}/user/friendsunseen`).then((result) => {
+            this.oldFriendsUnseen = result.data
         })
+        Axios.get(`${this.DORM_API}/user/friendsseen`).then((result) => {
+            this.oldFriendsSeen = result.data
+        })
+        this.scrollToBottom()
     }
 }
 </script>

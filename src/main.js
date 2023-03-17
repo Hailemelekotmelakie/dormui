@@ -17,11 +17,15 @@ const router = createRouter({
         },
         {
             path: '/channels',
-            component: () => import('@/Channels/ChannelPage')
+            component: () => import('@/Channels/ChannelPage.vue')
         },
         {
             path: '/groups',
-            component: () => import('@/Groups/GroupPage')
+            component: () => import('@/Groups/GroupPage.vue')
+        },
+        {
+            path: '/chat/:friendId',
+            component: () => import('@/Chats/ContactChats.vue')
         },
         {
             path: '/:pathMatch(.*)*',
