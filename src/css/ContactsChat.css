@@ -241,7 +241,7 @@
 }
 
 .messageingButton:hover {
-    animation: mySendMove 1s;
+    animation: 1s mySendMove;
     transition: 1s;
 }
 
@@ -252,15 +252,13 @@
     cursor: pointer;
 }
 
-.attachemntsPath {
-    fill: var(--buttonColor);
-}
 
 .threeDots {
     fill: var(--textColor);
 }
 
-.customPath {
+.customPath,
+.attachemntsPath {
     fill: var(--buttonColor)
 }
 

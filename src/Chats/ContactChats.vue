@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#" v-for="friend in                 oldFriendsSeen" :key="friend.id" class="oneChatContainer"
+            <a href="#" v-for="friend in oldFriendsSeen" :key="friend.id" class="oneChatContainer"
                 @click="writeToRightPanel(friend.friendId)">
                 <div class="oneChatContainerLeft">
                     <img width="50px" height="50px" class="profileImage"
@@ -46,7 +46,7 @@
             </a>
         </div>
         <div class="rightChatsContainer">
-            <div class="profileContainer">
+            <div v-if="chats.length" class="profileContainer">
                 <div class="profilePhotoTop">
                     <img class="profilePhotoTopImage" width="50px" height="50px" src="../assets/logo.png" alt="image">
                 </div>
@@ -55,7 +55,7 @@
                 <div v-html="htmlVerticalThreeDots" class="profile"> </div>
             </div>
             <div id="chat" class="rightChatsContainerB">
-                <div v-for="chat in                 chats" :key="chat.chatId">
+                <div v-for="chat in chats" :key="chat.chatId">
                     <div v-if="chat.sender == chat.yourId" class="rightChatsSender">
                         <div class="rightChatsSenderInner">{{ chat.text }}
                             <span class="timeAgo">
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class="textAreaContainer">
+            <div v-if="chats.length" class="textAreaContainer">
                 <textarea :class="{ 'fuccussed': hasFocus }" @focus="onFocus" @blur="onBlur()" id="message" class="message"
                     placeholder="Message" cols="1" v-model="message"></textarea>
                 <label v-html="htmlAttachment" class="labelForFile" for="file">
